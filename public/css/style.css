@@ -1,0 +1,36 @@
+/* Padding */
+*[padding]        {     padding:10px;           }
+*[padding-top]    {     padding-top:10px;       }
+*[padding-right]  {     padding-right:10px;     }
+*[padding-bottom] {     padding-bottom:10px;    }
+*[padding-left]   {     padding-left:10px;      }
+*[padding-none]   {     padding:0px;            }
+/* Margin */
+*[margin]         {     margin:10px;            }
+*[margin-top]     {     margin-top:10px;        }
+*[margin-right]   {     margin-right:10px;      }
+*[margin-bottom]  {     margin-bottom:10px;     }
+*[margin-left]    {     margin-left:10px;       }    
+*[margin-none]    {     margin:0px;             }    
+/* Float */
+*[right]          {     float: right;           }  
+*[left]           {     float: left;            }  
+/* Display */
+*[block]           {     display: block;        }  
+*[inline]          {     display: inline-block; }  
+/* Align */
+*[align-center]   {     text-align: center;      }
+*[align-left]     {     text-align: left;        }
+*[align-right]    {     text-align: right;       }
+*[align-justify]  {     text-align: justify;     }
+/* Link */
+*[link-none]      {     text-decoration:none!important;   }
+
+
+/* Fazendo testes
+*[primary]        {     background-color:#3097D1;transition: .3s ease;   }
+*[primary]:hover  {     background-color:#6fbbe6;   }
+  */
+
+
+/*=================[ Bootstrap Custom ]====================*/
