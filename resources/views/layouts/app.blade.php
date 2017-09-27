@@ -72,6 +72,9 @@
             </div>
         </nav>
 
+        @include('partials.errors')
+        @include('partials.success')
+
         <div class="container" style="margin-bottom:200px;">
             @yield('content')
         </div>

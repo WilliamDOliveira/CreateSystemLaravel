@@ -34,8 +34,7 @@
                             name="description"
                             spellcheck="false"
                             class="form-control autosize-target text-left"
-                            rows="5" >{{ $company->description }}
-                    </textarea>                   
+                            rows="5" >{{ $company->description }}</textarea>                   
                 </div>
 
                 <div class="form-group">

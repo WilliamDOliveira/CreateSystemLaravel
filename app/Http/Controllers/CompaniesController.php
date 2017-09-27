@@ -78,7 +78,27 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        /**
+        * Estou criando uma variável que está recebendo um metodo de update, Através da classe model eu chamo where pela id
+        * Assim ele me retorna a tabela desejada, em $request estou recebendo as requisições ou os campos enviados pelo formulário através do method POST 
+        * E dessa forma posso pegar os dados pelos nomes dos inputs do formulário e seus valores e atualizar minha tabela
+        **/
+
+        //save data
+        $companyUpdate = Company::where( 'id' , $company->id )
+                                ->update( [
+                                    'name' => $request->input('name'),
+                                    'description' => $request->input('description')
+                                ] );
+
+        if( $companyUpdate ){
+            return  redirect()
+                    ->route( 'companies.show' , [ 'company' => $company->id ] )
+                    ->with( 'success', 'Company Updated Successfully');
+        }
+        
+        //redirect
+        return back()->withInput();
     }
 
     /**
