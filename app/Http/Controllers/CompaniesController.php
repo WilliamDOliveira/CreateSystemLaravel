@@ -48,9 +48,9 @@ class CompaniesController extends Controller
      */
     public function show(Company $company)
     {
-        //example:.$user = DB::table('users')->where('name', 'John')->first()
-        //Não preciso por dessa forma porque estou recebendo por parametro a model, que já está vinculada a tabela
-        //há duas formas de fazer essa busca, segue abaixo
+        // example:.$user = DB::table('users')->where('name', 'John')->first()
+        // Não preciso por dessa forma porque estou recebendo por parametro a model, que já está vinculada a tabela
+        // há duas formas de fazer essa busca, segue abaixo
         // $company = Company::where( 'id' , $company->id )->first();
         $company = Company::find($company->id);
         return view('companies.show' , [ 'company' => $company ]);
@@ -91,6 +91,10 @@ class CompaniesController extends Controller
                                     'description' => $request->input('description')
                                 ] );
 
+        /**
+        * Caso ocorra com sucesso o update é chamado um redirect para pagina anterior,
+        * e exibido mensagem de sucesso
+        **/
         if( $companyUpdate ){
             return  redirect()
                     ->route( 'companies.show' , [ 'company' => $company->id ] )
@@ -109,6 +113,17 @@ class CompaniesController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        // $findCompany tem o retorno de uma tabela de acordo com o id passada
+        // se o metodo delete for chamado e executado sem problemas o user será redirecionado para pagina companies com msg de sucesso
+        $findCompany = Company::find( $company->id );
+        if( $findCompany->delete() ){
+
+            //redirect success
+            return  redirect()->route('companies.index')
+                    ->with( 'success' , 'Company deleted successfully' );
+        }        
+
+        //redirect error
+        return back()->withInput()->with( 'error' , 'Company could not be deleted' );
     }
 }

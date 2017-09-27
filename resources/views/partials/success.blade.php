@@ -1,5 +1,5 @@
 @if( session()->has('success') )
-    <div class="alert alert-dismissable alert-success fade show">
+    <div class="alert alert-dismissable alert-success">
         <button type="button" class="close" data-dismiss="alert" arial-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>

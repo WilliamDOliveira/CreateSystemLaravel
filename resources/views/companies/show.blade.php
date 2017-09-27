@@ -25,12 +25,43 @@
                 <h4>Actions</h4>
                 <ol class="list-unstyled">
                     <li><a href="/companies/{{ $company->id }}/edit">Edit</a></li>
-                    <li><a href="#">Delete</a></li>
-                    <li><a href="#">Add new Member</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#deleteCompany">Delete</a></li>
+
+                    <!-- <li><a href="#">Add new Member</a></li>  -->
                 </ol>
             </div>
         </div>
     
     </div>    
 
+    <!-- Delete Form -->
+    <form action="{{ route( 'companies.destroy' , [ $company->id ] ) }}" id="deleteCompanyForm" method="POST" style="display:none">
+        <input type="hidden" name="_method" value="delete">
+        {{ csrf_field() }}
+    </form>
+    <!-- Delete Form -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteCompany" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Delete</h4>
+            </div>
+            <div class="modal-body text-danger">
+                Are you sure you wish to delete this Company ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" onclick="deleteCompany()">Yes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+
 @endsection    
+
+
+

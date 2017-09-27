@@ -72,15 +72,20 @@
             </div>
         </nav>
 
-        @include('partials.errors')
-        @include('partials.success')
 
         <div class="container" style="margin-bottom:200px;">
+            <!-- Esse includes são blocos htmls de respota -->
+            @include('partials.errors')
+            @include('partials.success')
+            
+            <!-- Aqui é a referência para inserir os blocos html que são estendidos nas views -->
             @yield('content')
+
         </div>
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/functions.js') }}"></script>
 </body>
 </html>
