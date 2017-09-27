@@ -21,13 +21,21 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-3  blog-sidebar">
+            <!-- Company config  -->
             <div class="sidebar-module">
-                <h4>Actions</h4>
+                <h4 align-center>Actions Company</h4>
                 <ol class="list-unstyled">
-                    <li><a href="/companies/{{ $company->id }}/edit">Edit</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#deleteCompany">Delete</a></li>
-
-                    <!-- <li><a href="#">Add new Member</a></li>  -->
+                    <li><a class="btn btn-primary btn-block btn-large" margin-bottom href="/companies">List my Companies</a></li>                
+                    <li><a class="btn btn-primary btn-block btn-large" margin-bottom href="/companies/create">Create new Company</a></li>                
+                    <li><a class="btn btn-primary btn-block btn-large" margin-bottom href="/companies/{{ $company->id }}/edit">Edit Company</a></li>
+                    <li><a class="btn btn-danger btn-block btn-large" href="#" data-toggle="modal" data-target="#deleteCompany">Delete Company</a></li>
+                </ol>
+            </div>
+            <!-- Project config  -->
+            <div class="sidebar-module">
+                <h4 align-center>Actions Project</h4>
+                <ol class="list-unstyled">
+                    <li><a class="btn btn-primary btn-block btn-large" margin-bottom href="/projects/create">Create new Project</a></li>
                 </ol>
             </div>
         </div>

@@ -4,7 +4,7 @@
 
     <div class="row">
 
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-xs-12 col-sm-offset-1 col-sm-10">
 
             <h2 align-center>Edit your Company</h2>
 
@@ -44,18 +44,7 @@
 
 
             </form>
-        </div>
-
-        <div class="col-xs-12 col-sm-3  blog-sidebar">
-            <div class="sidebar-module">
-                <h4>Actions</h4>
-                <ol class="list-unstyled">
-                    <li><a href="/companies/{{ $company->id }}/edit">Edit</a></li>
-                    <li><a href="#">Delete</a></li>
-                    <li><a href="#">Add new Member</a></li>
-                </ol>
-            </div>
-        </div>
+        </div>        
 
     </div>
 

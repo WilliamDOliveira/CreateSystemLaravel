@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="panel panel-primary">
     <div class="panel-heading"><h4 margin-none>Companies</h4></div>
     <div class="panel-body">
@@ -14,5 +13,9 @@
     </div>
 </div>
 
+<div class="jumbotron" style="background-color:#fff;">
+    <h2>Vamos criar uma nova company?</h2>
+    <a class="btn btn-primary btn-lg" margin-top href="/companies/create">Create new Company</a>
+</div>
 
 @endsection
