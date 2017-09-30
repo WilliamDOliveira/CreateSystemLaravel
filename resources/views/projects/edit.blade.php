@@ -6,12 +6,13 @@
 
         <div class="col-xs-12 col-sm-offset-1 col-sm-10">
 
-            <h2 align-center>Create your Company</h2>
+            <h2 align-center>Edit your Company</h2>
 
-              <form action="{{ route('companies.store') }}" method="POST" padding style="background-color:#ffffff;">  
-             
+            <form action="{{ route('companies.update' , [ $company->id ]) }}" method="POST" padding style="background-color:#ffffff;">
                 {{ csrf_field() }}
 
+                <input type="hidden" name="_method" value="put">
+                
                 <div class="form-group">
                     <label for="company-name">Nome <span class="required">*</span></label>
                     <input  placeholder="Enter Name Company"
@@ -20,7 +21,8 @@
                             required
                             name="name"
                             spellcheck="false"
-                            class="form-control" >                        
+                            class="form-control"
+                            value="{{ $company->name }}" >                        
                 </div>
 
                 <div class="form-group">
@@ -32,11 +34,11 @@
                             name="description"
                             spellcheck="false"
                             class="form-control autosize-target text-left"
-                            rows="5" ></textarea>                   
+                            rows="5" >{{ $company->description }}</textarea>                   
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary btn-block btn-large" />
+                    <input type="submit" value="Update" class="btn btn-primary btn-block btn-large" />
                     <a href="javascript:history.back()" class="btn-info btn btn-large btn-block">Back</a>
                 </div>
 

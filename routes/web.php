@@ -25,4 +25,7 @@ Route::resource('roles'      , 'RolesController'     );
 Route::resource('tasks'      , 'TasksController'     );
 Route::resource('users'      , 'UsersController'     );
 
+
+// Essa é uma outra forma de criação de rotas, aqui se define o metodo que irá pegar a url
+// depois a url, qual cotroller e após o @ o metodo dentro do controller
 // Route::get('/companies/index', 'CompaniesController@index');

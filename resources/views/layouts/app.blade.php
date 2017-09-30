@@ -44,9 +44,23 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
+                            <!-- Esses links aparecem antes do usuário logar -->
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+                            <!-- Esses links só aparecem com usuário logado -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    My Companies <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ route('companies.index') }}">List my Companies</a></li>
+                                    <li><a href="{{ route('companies.create') }}">Create new Company</a></li>
+                                    <li><a href="{{ route('projects.index') }}">Projects</a></li>
+                                    <li><a href="{{ route('tasks.index') }}">Tasks</a></li>
+                                </ul>
+                            </li>
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
