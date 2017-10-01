@@ -16,7 +16,6 @@ class ProjectsController extends Controller
     {
         //verifica se o usuário está logado
         if( Auth::check() ){
-            dump( Auth::user()->id );
             //se estiver logado irá fazer a listar de acordo com a sua id 
             //ou seja so vai listar o que ele criou
             $projects = Project::where( 'user_id' , Auth::user()->id )->get() ;
@@ -31,10 +30,13 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+     /*
+     estou definindo id com null em rotas defini que é opcional passar a id e deixando ela como null eu posso fazer validações aqui
+     */
+    public function create( $company_id = null )
     {
-        //carregar view pela url projects/create que conterá o form de criação
-        return view('projects.create');
+        //carregar view pela url projects/create, e passar a variavel id de company
+        return view('projects.create' , [ 'company_id' => $company_id ]);
     }
 
     /**
@@ -51,6 +53,8 @@ class ProjectsController extends Controller
             $project = Project::create([
                 'name'          => $request->input('name'),
                 'description'   => $request->input('description'),
+                'days'          => $request->input('days'),
+                'company_id'    => $request->input('company_id'),
                 'user_id'       => Auth::user()->id
             ]);
 
@@ -72,7 +76,7 @@ class ProjectsController extends Controller
      * @param  \App\project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(project $project)
+    public function show(Project $project)
     {
         // example:.$user = DB::table('users')->where('name', 'John')->first()
         // Não preciso por dessa forma porque estou recebendo por parametro a model, que já está vinculada a tabela
@@ -88,7 +92,7 @@ class ProjectsController extends Controller
      * @param  \App\project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(project $project)
+    public function edit(Project $project)
     {
         //
         $project = Project::find($project->id);
@@ -102,7 +106,7 @@ class ProjectsController extends Controller
      * @param  \App\project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, project $project)
+    public function update(Request $request, Project $project)
     {
         /**
         * Estou criando uma variável que está recebendo um metodo de update, Através da classe model eu chamo where pela id
@@ -137,7 +141,7 @@ class ProjectsController extends Controller
      * @param  \App\project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(project $project)
+    public function destroy(Project $project)
     {
         // $findproject tem o retorno de uma tabela de acordo com o id passada
         // se o metodo delete for chamado e executado sem problemas o user será redirecionado para pagina projects com msg de sucesso

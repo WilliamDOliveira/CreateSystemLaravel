@@ -11,15 +11,19 @@
 |
 */ 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/' , 'CompaniesController@index');
+//Definindo nova rota de Home quando criar a index descomente acima
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('companies'  , 'CompaniesController' );
+Route::get('projects/create/{company_id?}'   , 'ProjectsController@create'  );
 Route::resource('projects'   , 'ProjectsController'  );
 Route::resource('roles'      , 'RolesController'     );
 Route::resource('tasks'      , 'TasksController'     );

@@ -7,7 +7,10 @@
     <div class="panel-body">
         <ul class="list-group">
         @foreach( $companies as $company ) 
-            <li padding-none class="list-group-item"><a block padding href="{{ url("/companies/$company->id") }}" link-none>{{ $company->name }}</a></li>
+            <li padding-none class="list-group-item">
+                <a block padding href="{{ url("/companies/$company->id") }}" link-none>{{ $company->name }}
+                </a>
+            </li>
         @endforeach
         </ul>        
     </div>

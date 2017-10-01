@@ -95,6 +95,10 @@
             <!-- Aqui é a referência para inserir os blocos html que são estendidos nas views -->
             @yield('content')
 
+            <div class="form-group">
+                <a href="javascript:history.back()" class="btn-info btn btn-large btn-block">Back</a>
+            </div>
+
         </div>
     </div>
 

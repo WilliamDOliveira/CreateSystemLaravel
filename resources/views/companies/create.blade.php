@@ -6,7 +6,7 @@
 
         <div class="col-xs-12 col-sm-offset-1 col-sm-10">
 
-            <h2 align-center>Create your Company</h2>
+            <h2 align-center>Create Your Company</h2>
 
               <form action="{{ route('companies.store') }}" method="POST" padding style="background-color:#ffffff;">  
              

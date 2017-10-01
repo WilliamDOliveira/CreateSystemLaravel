@@ -35,7 +35,10 @@
             <div class="sidebar-module">
                 <h4 align-center>Actions Project</h4>
                 <ol class="list-unstyled">
-                    <li><a class="btn btn-primary btn-block btn-large" margin-bottom href="/projects/create">Create new Project</a></li>
+                    <li><a class="btn btn-primary btn-block btn-large" margin-bottom href="/projects">List my Project</a></li>
+                    {{--  Aqui em create project estou passando o id da company para vincular ela com o projeto, alem do mais essa var será usada no controller para inserir no banco  --}}
+                    <li><a class="btn btn-primary btn-block btn-large" margin-bottom href="/projects/create/{{ $company->id }}">Create new Project</a></li>                
+                    <li><a class="btn btn-primary btn-block btn-large" margin-bottom href="/projects/{{ $company->id }}/edit">Edit my Project</a></li>
                 </ol>
             </div>
         </div>

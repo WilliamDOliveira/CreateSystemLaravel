@@ -17,7 +17,6 @@ class CompaniesController extends Controller
     {
         //verifica se o usuário está logado
         if( Auth::check() ){
-            dump( Auth::user()->id );
             //se estiver logado irá fazer a listar de acordo com a sua id 
             //ou seja so vai listar o que ele criou
             $companies = Company::where( 'user_id' , Auth::user()->id )->get() ;
