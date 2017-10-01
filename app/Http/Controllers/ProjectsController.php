@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectsController extends Controller
 {
@@ -118,6 +119,7 @@ class ProjectsController extends Controller
         $projectUpdate = Project::where( 'id' , $project->id )
                                 ->update( [
                                     'name' => $request->input('name'),
+                                    'days' => $request->input('days'),
                                     'description' => $request->input('description')
                                 ] );
 
