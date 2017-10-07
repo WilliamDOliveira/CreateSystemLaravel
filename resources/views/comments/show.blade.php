@@ -40,55 +40,6 @@
     
     </div>    
 
-    <!-- Comentarios -->
-        <div class="row">
-
-            <div class="col-xs-12 col-sm-offset-1 col-sm-10">
-
-                <h2 align-center>Comment Your Project</h2>
-
-                <form action="{{ route('comments.store') }}" method="POST" padding style="background-color:#ffffff;">  
-                
-                    {{ csrf_field() }}
-
-                    <input name="commentable" type="hidden" value="Project">
-                    <input name="commentable_id" type="hidden" value="{{ $project->id }}">
-
-                    <div class="form-group">
-                        <label for="project-name">Comment <span class="required">*</span></label>
-                        <textarea  placeholder="Enter Comment"
-                                id="comment-body" 
-                                type="text"
-                                required
-                                name="body"
-                                rows="3"
-                                spellcheck="false"
-                                class="form-control" ></textarea>                      
-                    </div>
-
-                    <div class="form-group">
-                        <label for="project-name">Proof of work done ( url / photos )</label>
-                        <textarea  placeholder="Enter url or screenshot"
-                                id="comment-url" 
-                                type="url"
-                                name="url"
-                                rows="2"
-                                spellcheck="false"
-                                class="form-control" ></textarea>                                              
-                    </div>                   
-
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary btn-block btn-large" />
-                        <a href="javascript:history.back()" class="btn-info btn btn-large btn-block">Back</a>
-                    </div>
-
-
-                </form>
-            </div>        
-
-        </div>
-    <!-- Comentarios -->
-
     <!-- Delete Form -->
     <form action="{{ route( 'projects.destroy' , [ $project->id ] ) }}" id="deleteprojectForm" method="POST" style="display:none">
         <input type="hidden" name="_method" value="delete">
